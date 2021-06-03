@@ -2,13 +2,17 @@
 
 Based on the minimal amount of publically available information, and an unmeasurable amount of bruteforcing and observation, finally there is a driver and documentation on how to unlock and use the Jazelle core included (or hidden) in some ARM CPU cores.
 
-You can also reimplement this driver yourself based on the information documented in the wiki tab.
+You can also reimplement this driver yourself based on the information documented in the [wiki tab](./wiki).
 
 ## CPU compatibility
 
-While all CPUs with `J` in their name should have Jazelle in them (like `ARM926EJ-S`), in some cases it's not so obvious (for example some if not all `ARM11 MPCore` CPUs should have it).
+While all CPUs with `J` in their name should have Jazelle in them (like `ARM926EJ-S` or `ARMv5TEJ`), in some cases it's not so obvious (for example some if not all `ARM11 MPCore` (`ARMv6K`) CPUs should have it).
 
-The best bet is to try the MRC commands in kernel mode to see if the Jazelle core exists or not.
+The best bet is to run the below instructions in kernel mode to see if the Jazelle core exists or not. You know there is a Jazelle core if you don't get any CPU exception, and you get a value with some high and some low bits set with middle bits being mostly if not all zero (in `r0` in this example).
+>     MOV r0, #2
+>     MCR p14, 7, r0, c1, c0, 0
+>     MRC p14, 7, r0, c0, c0, 0
+On my ARM11 MPCore I get `0x74100064`.
 
 A rule of thumb is that ARM7TDMI (ARMv4 ?) is too old to hava Jazelle, while ARMv7 CPUs are highly unlikely to have it due to being too new.
 
