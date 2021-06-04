@@ -2,7 +2,7 @@
 
 Based on the minimal amount of publically available information, and an unmeasurable amount of bruteforcing and observation, finally there is a driver and documentation on how to unlock and use the Jazelle core included (and most likely hidden) in some ARM CPU cores.
 
-You can also reimplement this driver yourself based on the information documented in the [wiki tab](./wiki).
+You can also reimplement this driver yourself based on the information documented in the [wiki tab](../../wiki).
 
 ## CPU compatibility
 
